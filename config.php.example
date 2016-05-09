@@ -4,8 +4,8 @@
  * 
 */
 $DB_HOST  = "localhost";
-$DB_USER  = "waffle_user";
-$DB_PASS  = "<FILL_User_Password>";
+$DB_USER  = "admin";
+$DB_PASS  = "123456";
 $DATABASE = "waffle";
 
 // To enable full events compression in database use 'TRUE', to disable 
