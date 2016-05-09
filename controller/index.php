@@ -488,7 +488,7 @@ if ($PhaseA['ClientIP'] == "" OR $PhaseA['ServerIP'] == "") {
 }
 
 // Insert event in database
-$sql_event = 'INSERT INTO `events` (`event_id`, `sensor_id`, `a_timestamp`, `a_timezone`,`a_date`,`a_uniqid`, `a_client_ip`,`a_client_ip_cc`,`a_client_ip_asn`, `a_client_port`, `a_server_ip`, `a_server_port`, `b_method`, `b_path`,`b_path_parameter`,`b_protocol`, `b_host`, `b_user_agent`, `b_referer`, `f_protocol`, `f_status`, `f_msg`,`f_content_length`, `f_connection`, `f_content_type`, `h_apache_error_file`, `h_apache_error_line`,`h_apache_error_level`, `h_apache_error_message`, `h_stopwatch_timestamp`, `h_stopwatch_duration`,`h_stopwatch_time_checkpoint_1`, `h_stopwatch_time_checkpoint_2`, `h_stopwatch_time_checkpoint_3`,  `h_stopwatch2_Timestamp`, `h_stopwatch2_duration`, `h_stopwatch2_combined`, `h_stopwatch2_p1`, `h_stopwatch2_p2`, `h_stopwatch2_p3`, `h_stopwatch2_p4`, `h_stopwatch2_p5`, `h_stopwatch2_sr`, `h_stopwatch2_sw`, `h_stopwatch2_l`, `h_stopwatch2_gc`, `h_producer`,`h_producer_ruleset`, `h_server`, `h_wa_info_app_id`, `h_wa_info_sess_id`, `h_wa_info_user_id`, `h_apache_handler`,`h_response_body_transf`,`h_severity`,`h_action_status`,`h_action_status_msg`,`h_engine_mode`,`h_score_total`,`h_score_SQLi`,`h_score_XSS`,`h_Interception_phase`) VALUES (NULL, :sensorid, :PhaseATimestamp, :PhaseATimezone, :PhaseADate, :PhaseAUniqID, INET_ATON(:PhaseAClientIP),:PhaseAClientIPCC, :PhaseAClientIPASN, :PhaseASourcePort, INET_ATON(:PhaseAServerIP), :PhaseAServerPort,  :PhaseBMethod, :PhaseBPath, :PhaseBPathParameter, :PhaseBProtocol, :PhaseBHost, :PhaseBUserAgent, :PhaseBReferer, :PhaseFProtocol, :PhaseFStatus, :PhaseFMSG, :PhaseFContentLength, :PhaseFConnection, :PhaseFContentType, :PhaseHApacheerrorFile, :PhaseHApacheerrorLine, :PhaseHApacheerrorLevel, :PhaseHApacheerrorMessage, :PhaseHStopwatchTimestamp, :PhaseHStopwatchDuration, :PhaseHStopwatchtimecheckpoint1, :PhaseHStopwatchtimecheckpoint2, :PhaseHStopwatchtimecheckpoint3, :PhaseHStopwatch2_Timestamp, :PhaseHStopwatch2_duration, :PhaseHStopwatch2_combined, :PhaseHStopwatch2_p1,  :PhaseHStopwatch2_p2, :PhaseHStopwatch2_p3, :PhaseHStopwatch2_p4, :PhaseHStopwatch2_p5, :PhaseHStopwatch2_sr, :PhaseHStopwatch2_sw, :PhaseHStopwatch2_l, :PhaseHStopwatch2_gc, :PhaseHProducer, :PhaseHProducerruleset, :PhaseHServer, :PhaseHWebAppInfoApplicationID, :PhaseHWebAppInfoSessionID, :PhaseHWebAppInfoUserID, :PhaseHApacheHandler, :PhaseHResponseBodyTransformed, :PhaseHSeverity, :PhaseHActionStatus, :PhaseHActionStatusMsg, :PhaseHEngineMode, :PhaseHScoreInTotal, :PhaseHScoreInSQLi, :PhaseHScoreInXSS, :PhaseHInterception_phase)';
+$sql_event = 'INSERT INTO `events` (`event_id`, `sensor_id`, `a_timestamp`, `a_timezone`,`a_date`,`a_uniqid`, `a_client_ip`,`a_client_ip_cc`,`a_client_ip_asn`, `a_client_port`, `a_server_ip`, `a_server_port`, `b_method`, `b_path`,`b_path_parameter`,`b_protocol`, `b_host`, `b_user_agent`, `b_referer`, `f_protocol`, `f_status`, `f_msg`,`f_content_length`, `f_connection`, `f_content_type`, `h_apache_error_file`, `h_apache_error_line`,`h_apache_error_level`, `h_apache_error_message`, `h_stopwatch_timestamp`, `h_stopwatch_duration`,`h_stopwatch_time_checkpoint_1`, `h_stopwatch_time_checkpoint_2`, `h_stopwatch_time_checkpoint_3`,  `h_stopwatch2_Timestamp`, `h_stopwatch2_duration`, `h_stopwatch2_combined`, `h_stopwatch2_p1`, `h_stopwatch2_p2`, `h_stopwatch2_p3`, `h_stopwatch2_p4`, `h_stopwatch2_p5`, `h_stopwatch2_sr`, `h_stopwatch2_sw`, `h_stopwatch2_l`, `h_stopwatch2_gc`, `h_producer`,`h_producer_ruleset`, `h_server`, `h_wa_info_app_id`, `h_wa_info_sess_id`, `h_wa_info_user_id`, `h_apache_handler`,`h_response_body_transf`,`h_severity`,`h_action_status`,`h_action_status_msg`,`h_engine_mode`,`h_score_total`,`h_score_SQLi`,`h_score_XSS`,`h_Interception_phase`, `preserve`, `false_positive`) VALUES (NULL, :sensorid, :PhaseATimestamp, :PhaseATimezone, :PhaseADate, :PhaseAUniqID, INET_ATON(:PhaseAClientIP),:PhaseAClientIPCC, :PhaseAClientIPASN, :PhaseASourcePort, INET_ATON(:PhaseAServerIP), :PhaseAServerPort,  :PhaseBMethod, :PhaseBPath, :PhaseBPathParameter, :PhaseBProtocol, :PhaseBHost, :PhaseBUserAgent, :PhaseBReferer, :PhaseFProtocol, :PhaseFStatus, :PhaseFMSG, :PhaseFContentLength, :PhaseFConnection, :PhaseFContentType, :PhaseHApacheerrorFile, :PhaseHApacheerrorLine, :PhaseHApacheerrorLevel, :PhaseHApacheerrorMessage, :PhaseHStopwatchTimestamp, :PhaseHStopwatchDuration, :PhaseHStopwatchtimecheckpoint1, :PhaseHStopwatchtimecheckpoint2, :PhaseHStopwatchtimecheckpoint3, :PhaseHStopwatch2_Timestamp, :PhaseHStopwatch2_duration, :PhaseHStopwatch2_combined, :PhaseHStopwatch2_p1,  :PhaseHStopwatch2_p2, :PhaseHStopwatch2_p3, :PhaseHStopwatch2_p4, :PhaseHStopwatch2_p5, :PhaseHStopwatch2_sr, :PhaseHStopwatch2_sw, :PhaseHStopwatch2_l, :PhaseHStopwatch2_gc, :PhaseHProducer, :PhaseHProducerruleset, :PhaseHServer, :PhaseHWebAppInfoApplicationID, :PhaseHWebAppInfoSessionID, :PhaseHWebAppInfoUserID, :PhaseHApacheHandler, :PhaseHResponseBodyTransformed, :PhaseHSeverity, :PhaseHActionStatus, :PhaseHActionStatusMsg, :PhaseHEngineMode, :PhaseHScoreInTotal, :PhaseHScoreInSQLi, :PhaseHScoreInXSS, :PhaseHInterception_phase, 0, 0)';
 
 if (!isset($PhaseB['Method']) || is_null($PhaseB['Method'])) {
     $PhaseB['Method'] = "";
@@ -512,7 +512,7 @@ if (!isset($PhaseB['Referer']) || is_null($PhaseB['Referer'])) {
     $PhaseB['Referer'] = "";
 };
 if (!isset($PhaseF['Content-Length']) || is_null($PhaseF['Content-Length'])) {
-    $PhaseF['Content-Length'] = "";
+    $PhaseF['Content-Length'] = "0";
 };
 if (!isset($PhaseF['Connection']) || is_null($PhaseF['Connection'])) {
     $PhaseF['Connection'] = "";
@@ -533,10 +533,10 @@ if (!isset($PhaseH['Apache_error-File']) || is_null($PhaseH['Apache_error-File']
     $PhaseH['Apache_error-File'] = "";
 };
 if (!isset($PhaseH['Apache_error-Line']) || is_null($PhaseH['Apache_error-Line'])) {
-    $PhaseH['Apache_error-Line'] = "";
+    $PhaseH['Apache_error-Line'] = "0";
 };
 if (!isset($PhaseH['Apache_error-Level']) || is_null($PhaseH['Apache_error-Level'])) {
-    $PhaseH['Apache_error-Level'] = "";
+    $PhaseH['Apache_error-Level'] = "0";
 };
 if (!isset($PhaseH['Apache_error-Message']) || is_null($PhaseH['Apache_error-Message'])) {
     $PhaseH['Apache_error-Message'] = "";
@@ -563,16 +563,16 @@ if (!isset($PhaseH['ActionStatusMsg']) || is_null($PhaseH['ActionStatusMsg'])) {
     $PhaseH['ActionStatusMsg'] = "Warning"; // Action message not defined, we suppose that was a warning
 };
 if (!isset($PhaseH['Engine_Mode']) || is_null($PhaseH['Engine_Mode'])) {
-    $PhaseH['Engine_Mode'] = "";
+    $PhaseH['Engine_Mode'] = "0";
 };
 if (!isset($PhaseH['Score']['In_Total']) || is_null($PhaseH['Score']['In_Total'])) {
-    $PhaseH['Score']['In_Total'] = "";
+    $PhaseH['Score']['In_Total'] = "0";
 };
 if (!isset($PhaseH['Score']['In_SQLi']) || is_null($PhaseH['Score']['In_SQLi'])) {
-    $PhaseH['Score']['In_SQLi'] = "";
+    $PhaseH['Score']['In_SQLi'] = "0";
 };
 if (!isset($PhaseH['Score']['In_XSS']) || is_null($PhaseH['Score']['In_XSS'])) {
-    $PhaseH['Score']['In_XSS'] = "";
+    $PhaseH['Score']['In_XSS'] = "0";
 };
 if (!isset($PhaseH['Message_Severity']) || is_null($PhaseH['Message_Severity'])) {
     $PhaseH['Message_Severity'] = "99";
@@ -590,7 +590,7 @@ try {
     // Get Country Code of IP Address
     $ClientIPCC = geoip_country_code_by_name($PhaseA['ClientIP']);
     if (!$ClientIPCC) {
-       $ClientIPCC = '';
+       $ClientIPCC = '0';
     }
     // Get Country Code of IP ASN
     $ClientIPASN = str_ireplace('AS', "", strstr(geoip_isp_by_name($PhaseA['ClientIP']), ' ', true));
