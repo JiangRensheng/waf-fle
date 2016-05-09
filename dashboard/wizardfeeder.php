@@ -127,7 +127,7 @@ SecAuditLogParts ABIDEFGHZ
 
 SecAuditLogType Concurrent
 
-SecAuditLog "|/usr/local/bin/mlogc /etc/mlogc.conf"
+SecAuditLog "|/var/www/html/bin/mlogc /etc/mlogc.conf"
 
 # Specify the path for concurrent audit logging.
 SecAuditLogStorageDir <?PHP print headerprintnobr($_GET['logdir']) ;?>
@@ -158,7 +158,7 @@ SecAuditLogParts ABIDEFGHZ
 #
 SecAuditLogType Concurrent
 
-SecAuditLog <?PHP print headerprintnobr($_GET['logfile']) . "\n"; ?>
+SecAuditLog /var/log/mlogc/modsec_audit.log
 
 # Specify the path for concurrent audit logging.
 SecAuditLogStorageDir <?PHP print headerprintnobr($_GET['logdir']) ."\n"; ?>
@@ -408,14 +408,14 @@ $DEBUG_FILE = "<?PHP print headerprintnobr(dirname($_GET['logdir'])); ?>/mlog2wa
                     <br>
                     <b>2.</b> Use the a script like below to prepare and feed events:<br>
                     <br>
-                    <b>/usr/local/sbin/push-mlogc.sh</b>
+                    <b>/var/www/html/sbin/push-mlogc.sh</b>
 <pre>
 #!/bin/bash
 
 # Check if a old execution still running, and kill it
 Status=0;
 while [ $Status -eq 0 ]; do
-  PmlogcBatch=`/sbin/pidof -x /usr/local/modsecurity/bin/mlogc-batch-load.pl`
+  PmlogcBatch=`/sbin/pidof -x /var/www/html/modsecurity/bin/mlogc-batch-load.pl`
   PplStatus=$?
   Pmlogc=`/sbin/pidof -x /usr/sbin/mlogc`
   PmlogcStatus=$?
@@ -437,8 +437,8 @@ done
 # Start mlogc push
 echo "Sending logs to WAF-FLE";
 date
-/usr/local/modsecurity/bin/mlogc-batch-load.pl <?PHP print headerprintnobr($_GET['logdir']); ?> \ 
-/usr/local/modsecurity/bin/mlogc /etc/mlogc.conf
+/var/www/html/modsecurity/bin/mlogc-batch-load.pl <?PHP print headerprintnobr($_GET['logdir']); ?> \ 
+/var/www/html/modsecurity/bin/mlogc /etc/mlogc.conf
 
 find  <?PHP print headerprintnobr($_GET['logdir']); ?> -type d -empty -delete
 </pre>                    
@@ -446,7 +446,7 @@ find  <?PHP print headerprintnobr($_GET['logdir']); ?> -type d -empty -delete
                     
                     <b>3.</b> A crontab entry to run the script, each 5 minutes (or other periodic time, as you need)<br>
                     <pre>
-*/5 * * * * /usr/local/sbin/push-mlogc.sh  > /tmp/mlog.log 2>&1    
+*/5 * * * * /var/www/html/sbin/push-mlogc.sh  > /tmp/mlog.log 2>&1    
                     </pre>
                         
                     <?PHP
