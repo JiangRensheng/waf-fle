@@ -8,7 +8,7 @@
 $waffleVersion = '0.6.0';
 
 // variable init
-$databaseSchema="/usr/local/waf-fle/extra/waffle.mysql";
+$databaseSchema="/var/www/html/waf-fle/extra/waffle.mysql";
 $configphpError=false;
 $extensionError=false;
 $databaseError=false;
@@ -405,7 +405,7 @@ if (file_exists("../config.php")) {
     // in case of some error, exit
     if ($configphpError) {
         print "<b>Configuration file \"config.php\" has errors, check above what's wrong. After solved, run setup again!</b><br>";
-        break;
+        return;
     } else {
         print "&nbsp;&nbsp; Config looks correct.<br>";
     }
@@ -504,7 +504,7 @@ if (file_exists("../config.php")) {
     }
     if ($extensionError) {
         print "<b>Erro in PHP Extensions, check above what's wrong. After dependency solved, run setup again!</b><br>";
-        break;
+        return;
     }
     print "<br />";
 
